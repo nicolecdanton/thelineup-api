@@ -1,18 +1,26 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework.serializers import ModelSerializer
+from django.contrib.auth.models import User
 
 from lineupapi.models import Profile
 from rest_framework import status
 
 
-class ProfileSerializer(ModelSerializer):
 
+
+class UserSerializer(ModelSerializer):
+    
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'first_name', 'last_name')
+
+
+class ProfileSerializer(ModelSerializer):
+    user = UserSerializer(many=False)
     class Meta:
         model = Profile
         fields = ('id', 'user', 'bio', 'soundcloud', 'instagram')
-
-
 
 
 class ProfileView(ViewSet):
