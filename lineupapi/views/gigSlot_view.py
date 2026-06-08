@@ -32,12 +32,14 @@ class GigSlotSerializer(ModelSerializer):
         fields = ('id', 'gig', 'instrument', 'filled_by')
 
 class GigSlotView(ViewSet):
-    
+    #Lists all of the slots for a specific gig
     def list(self, request):
-        gig_slots = GigSlot.objects.all()
+        gig_id = request.query_params.get('gig_id')
+        gig_slots = GigSlot.objects.filter(gig_id=gig_id)
         serialized = GigSlotSerializer(gig_slots, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
+    #Get a single slot by id
     def retrieve(self, request, pk=None):
         try:
             gig_slot = GigSlot.objects.get(pk=pk)

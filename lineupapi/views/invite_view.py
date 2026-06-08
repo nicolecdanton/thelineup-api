@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework.serializers import ModelSerializer
+from rest_framework.decorators import action
 from django.contrib.auth.models import User
 from lineupapi.views.gigSlot_view import GigSlotSerializer
 
@@ -23,9 +24,17 @@ class InviteSerializer(ModelSerializer):
 
 
 class InviteView(ViewSet):
-    
+    #current user's incoming invites
     def list(self, request):
-        invites = Invite.objects.all()
+        invites = Invite.objects.filter(musician=request.user)
+        serialized = InviteSerializer(invites, many=True)
+        return Response(serialized.data, status=status.HTTP_200_OK)
+
+    #all invites for a specific slot
+    @action(detail=False, methods=['get'], url_path='by_slot')
+    def by_slot(self, request):
+        gigslot_id = request.query_params.get('gigslot_id')
+        invites = Invite.objects.filter(slot_id=gigslot_id)
         serialized = InviteSerializer(invites, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
