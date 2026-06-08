@@ -20,18 +20,19 @@ class GigSerializer(ModelSerializer):
 
 
 class GigView(ViewSet):
-
+    #List gigs created by current user- for showing 'My Gigs' on the client side
     def list(self, request):
-        gigs = Gig.objects.all()
+        gigs = Gig.objects.filter(booker=request.user)
         serialized = GigSerializer(gigs, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
-
+    #Retrieve a single gig by id
     def retrieve(self, request, pk=None):
         gig = Gig.objects.get(pk=pk)
         serialized = GigSerializer(gig)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
+    #Create a new gig. The booker is the current user.
     def create(self, request):
         booker = request.user
         gig = Gig.objects.create(
@@ -46,6 +47,7 @@ class GigView(ViewSet):
         serialized = GigSerializer(gig)
         return Response(serialized.data, status=status.HTTP_201_CREATED)
     
+    #Update an existing gig. Only the booker can update the gig.
     def update(self, request, pk=None):
         gig = Gig.objects.get(pk=pk)
         gig.title = request.data['title']
@@ -57,6 +59,7 @@ class GigView(ViewSet):
         gig.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
+    #Delete a gig. Only the booker can delete the gig.
     def destroy(self, request, pk=None):
         gig = Gig.objects.get(pk=pk)
         gig.delete()

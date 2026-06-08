@@ -3,7 +3,7 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 from lineupapi.views import InstrumentView, VenueView, ProfileView, UserViewSet,GigView, GigSlotView, InviteView
 
-router = DefaultRouter(trailing_slash=False)
+router = DefaultRouter()
 router.register(r'instruments', InstrumentView, 'instrument')
 router.register(r'venues', VenueView, 'venue')
 router.register(r'profiles', ProfileView, 'profile')

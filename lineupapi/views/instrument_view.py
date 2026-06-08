@@ -27,4 +27,4 @@ class InstrumentView(ViewSet):
         return Response(serialized.data, status=status.HTTP_200_OK)
         
     
-    "There will be no ability to create, update, or delete instruments. These will be seeded in the database and only read by the client."
+    """There will be no ability to create, update, or delete instruments. These will be seeded in the database and only read by the client."""

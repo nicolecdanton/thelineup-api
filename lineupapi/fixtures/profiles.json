@@ -1,0 +1,68 @@
+[
+    {
+        "model": "lineupapi.profile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "bio": "Nashville-based guitarist with 10 years of experience in rock and blues. Available for sessions and live gigs.",
+            "soundcloud": "https://soundcloud.com/ryantanay",
+            "instagram": "@ryantanay",
+            "instruments": [1, 9]
+        }
+    },
+    {
+        "model": "lineupapi.profile",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "bio": "Classically trained pianist who loves jazz and soul. I've played with orchestras and small combos alike.",
+            "soundcloud": "https://soundcloud.com/megducharme",
+            "instagram": "@megducharme",
+            "instruments": [4, 9]
+        }
+    },
+    {
+        "model": "lineupapi.profile",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "bio": "Violinist specializing in folk and chamber music. Open to genre crossover projects.",
+            "soundcloud": "",
+            "instagram": "@jennasolis",
+            "instruments": [5]
+        }
+    },
+    {
+        "model": "lineupapi.profile",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "bio": "Drummer and bassist with a background in funk and hip-hop. Heavy groove is my specialty.",
+            "soundcloud": "https://soundcloud.com/bryannilson",
+            "instagram": "@bryannilson",
+            "instruments": [3, 2]
+        }
+    },
+    {
+        "model": "lineupapi.profile",
+        "pk": 5,
+        "fields": {
+            "user": 5,
+            "bio": "Horn player with a jazz and Latin background. Comfortable on both sax and trumpet.",
+            "soundcloud": "https://soundcloud.com/emilylemmon",
+            "instagram": "@emilylemmon",
+            "instruments": [7, 6]
+        }
+    },
+    {
+        "model": "lineupapi.profile",
+        "pk": 6,
+        "fields": {
+            "user": 6,
+            "bio": "Multi-instrumentalist focused on indie rock and experimental sounds. Always looking for interesting collaborations.",
+            "soundcloud": "https://soundcloud.com/tylerhilliard",
+            "instagram": "@tylerhilliard",
+            "instruments": [2, 1]
+        }
+    }
+]

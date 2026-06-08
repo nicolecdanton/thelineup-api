@@ -1,0 +1,72 @@
+[
+    {
+        "model": "lineupapi.instrument",
+        "pk": 1,
+        "fields": {
+            "name": "Guitar"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 2,
+        "fields": {
+            "name": "Bass Guitar"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 3,
+        "fields": {
+            "name": "Drums"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 4,
+        "fields": {
+            "name": "Piano"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 5,
+        "fields": {
+            "name": "Violin"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 6,
+        "fields": {
+            "name": "Trumpet"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 7,
+        "fields": {
+            "name": "Saxophone"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 8,
+        "fields": {
+            "name": "Trombone"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 9,
+        "fields": {
+            "name": "Vocals"
+        }
+    },
+    {
+        "model": "lineupapi.instrument",
+        "pk": 10,
+        "fields": {
+            "name": "Upright Bass"
+        }
+    }
+]

@@ -7,6 +7,8 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
+from lineupapi.models import Profile
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,6 +32,7 @@ class UserViewSet(viewsets.ViewSet):
                 password=serializer.validated_data['password']
             )
             token, created = Token.objects.get_or_create(user=user)
+            Profile.objects.create(user=user, bio='')
             return Response({"token": token.key}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

@@ -1,0 +1,67 @@
+[
+    {
+        "model": "lineupapi.gig",
+        "pk": 1,
+        "fields": {
+            "booker": 1,
+            "title": "Friday Night Jazz",
+            "date": "2026-07-11",
+            "time": "20:00:00",
+            "venue": 1,
+            "pay_per_musician": "150.00",
+            "description": "Smooth jazz set at a downtown bar. Looking for a tight rhythm section."
+        }
+    },
+    {
+        "model": "lineupapi.gig",
+        "pk": 2,
+        "fields": {
+            "booker": 2,
+            "title": "Wedding Reception",
+            "date": "2026-08-03",
+            "time": "18:00:00",
+            "venue": 2,
+            "pay_per_musician": "250.00",
+            "description": "Four-hour wedding reception. Mix of pop covers and a few originals."
+        }
+    },
+    {
+        "model": "lineupapi.gig",
+        "pk": 3,
+        "fields": {
+            "booker": 3,
+            "title": "Open Mic Showcase",
+            "date": "2026-07-18",
+            "time": "19:30:00",
+            "venue": 3,
+            "pay_per_musician": "75.00",
+            "description": "Backing band for an open mic night. Mostly blues and rock."
+        }
+    },
+    {
+        "model": "lineupapi.gig",
+        "pk": 4,
+        "fields": {
+            "booker": 5,
+            "title": "Rooftop Summer Party",
+            "date": "2026-07-25",
+            "time": "17:00:00",
+            "venue": 4,
+            "pay_per_musician": "200.00",
+            "description": "Outdoor rooftop event. Funk and soul setlist, 3 hours."
+        }
+    },
+    {
+        "model": "lineupapi.gig",
+        "pk": 5,
+        "fields": {
+            "booker": 6,
+            "title": "Corporate Holiday Event",
+            "date": "2026-12-12",
+            "time": "19:00:00",
+            "venue": 5,
+            "pay_per_musician": "300.00",
+            "description": "Holiday party for a tech company. Professional attire, mixed genre setlist."
+        }
+    }
+]

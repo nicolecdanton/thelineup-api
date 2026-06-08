@@ -1,0 +1,52 @@
+[
+    {
+        "model": "lineupapi.venue",
+        "pk": 1,
+        "fields": {
+            "name": "The Basement",
+            "address": "1214 4th Ave S",
+            "city": "Nashville",
+            "state": "TN"
+        }
+    },
+    {
+        "model": "lineupapi.venue",
+        "pk": 2,
+        "fields": {
+            "name": "Blue Room",
+            "address": "330 Franklin Rd",
+            "city": "Nashville",
+            "state": "TN"
+        }
+    },
+    {
+        "model": "lineupapi.venue",
+        "pk": 3,
+        "fields": {
+            "name": "City Winery",
+            "address": "609 Lafayette St",
+            "city": "Nashville",
+            "state": "TN"
+        }
+    },
+    {
+        "model": "lineupapi.venue",
+        "pk": 4,
+        "fields": {
+            "name": "Mercy Lounge",
+            "address": "1 Cannery Row",
+            "city": "Nashville",
+            "state": "TN"
+        }
+    },
+    {
+        "model": "lineupapi.venue",
+        "pk": 5,
+        "fields": {
+            "name": "3rd and Lindsley",
+            "address": "818 3rd Ave S",
+            "city": "Nashville",
+            "state": "TN"
+        }
+    }
+]

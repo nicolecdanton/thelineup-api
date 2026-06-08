@@ -7,3 +7,4 @@ class Profile(models.Model):
     bio = models.CharField(max_length=3500)
     soundcloud = models.URLField(max_length=255, blank=True)
     instagram = models.CharField(max_length=255, blank=True)
+    instruments = models.ManyToManyField('Instrument', related_name='profiles', blank=True)
