@@ -35,6 +35,9 @@ class ProfileView(ViewSet):
     #List all profiles. Need this on client side Musicians Page
     def list(self, request):
         profiles = Profile.objects.all()
+        instrument_id = request.query_params.get('instrument_id')
+        if instrument_id:
+            profiles = profiles.filter(instruments__id=instrument_id)
         serialized = ProfileSerializer(profiles, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
