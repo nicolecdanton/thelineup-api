@@ -45,14 +45,6 @@ class GigSlotView(ViewSet):
         serialized = GigSlotSerializer(gig_slots, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
-    #Get a single slot by id
-    def retrieve(self, request, pk=None):
-        try:
-            gig_slot = GigSlot.objects.get(pk=pk)
-        except GigSlot.DoesNotExist:
-            return Response({'error': 'GigSlot not found'}, status=status.HTTP_404_NOT_FOUND)
-        serialized = GigSlotSerializer(gig_slot)
-        return Response(serialized.data, status=status.HTTP_200_OK)
 
     def create(self, request):
         gig_slot = GigSlot.objects.create(
@@ -62,13 +54,4 @@ class GigSlotView(ViewSet):
         serialized = GigSlotSerializer(gig_slot)
         return Response(serialized.data, status=status.HTTP_201_CREATED)
 
-    def update(self, request, pk=None):
-        try:
-            gig_slot = GigSlot.objects.get(pk=pk)
-        except GigSlot.DoesNotExist:
-            return Response({'error': 'GigSlot not found'}, status=status.HTTP_404_NOT_FOUND)
-        gig_slot.gig_id = request.data['gig_id']
-        gig_slot.instrument_id = request.data['instrument_id']
-        gig_slot.filled_by_id = request.data['filled_by_id']
-        gig_slot.save()
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+   

@@ -31,6 +31,8 @@ class ProfileSerializer(ModelSerializer):
         fields = ('id', 'user', 'bio', 'soundcloud', 'instagram', 'instruments')
 
 
+
+
 class ProfileView(ViewSet):
     #List all profiles. Need this on client side Musicians Page
     def list(self, request):

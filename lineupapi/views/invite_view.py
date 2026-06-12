@@ -30,13 +30,6 @@ class InviteView(ViewSet):
         serialized = InviteSerializer(invites, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
-    def retrieve(self, request, pk=None):
-        try:
-            invite = Invite.objects.get(pk=pk)
-        except Invite.DoesNotExist:
-            return Response({'error': 'Invite not found'}, status=status.HTTP_404_NOT_FOUND)
-        serialized = InviteSerializer(invite)
-        return Response(serialized.data, status=status.HTTP_200_OK)
     
     def create(self, request):
         invite = Invite.objects.create(
@@ -48,10 +41,7 @@ class InviteView(ViewSet):
         return Response(serialized.data, status=status.HTTP_201_CREATED)
     
     def update(self, request, pk=None):
-        try:
-            invite = Invite.objects.get(pk=pk)
-        except Invite.DoesNotExist:
-            return Response({'error': 'Invite not found'}, status=status.HTTP_404_NOT_FOUND)
+        invite = Invite.objects.get(pk=pk)
         invite.status = request.data['status']
         invite.responded_at = request.data['responded_at']
         invite.save()
