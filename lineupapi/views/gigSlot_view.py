@@ -1,10 +1,9 @@
-
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework.serializers import ModelSerializer
 from django.contrib.auth.models import User
 
-from lineupapi.models import Gig, Instrument, GigSlot
+from lineupapi.models import Gig, Instrument, GigSlot, Invite
 from rest_framework import status
 
 class UserSerializer(ModelSerializer):
@@ -23,13 +22,20 @@ class InstrumentSerializer(ModelSerializer):
         model = Instrument
         fields = ['id', 'name']
 
+class InviteSerializer(ModelSerializer):
+    musician = UserSerializer(many=False)
+    class Meta:
+        model = Invite
+        fields = ('id', 'musician', 'status', 'sent_at', 'responded_at')
+
 class GigSlotSerializer(ModelSerializer):
     gig = GigSerializer(many=False)
     instrument = InstrumentSerializer(many=False)
     filled_by = UserSerializer(many=False)
+    invites = InviteSerializer(many=True, read_only=True)
     class Meta:
         model = GigSlot
-        fields = ('id', 'gig', 'instrument', 'filled_by')
+        fields = ('id', 'gig', 'instrument', 'filled_by', 'invites')
 
 class GigSlotView(ViewSet):
     #Lists all of the slots for a specific gig
@@ -38,7 +44,7 @@ class GigSlotView(ViewSet):
         gig_slots = GigSlot.objects.filter(gig_id=gig_id)
         serialized = GigSlotSerializer(gig_slots, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
-    
+
     #Get a single slot by id
     def retrieve(self, request, pk=None):
         try:
@@ -47,7 +53,7 @@ class GigSlotView(ViewSet):
             return Response({'error': 'GigSlot not found'}, status=status.HTTP_404_NOT_FOUND)
         serialized = GigSlotSerializer(gig_slot)
         return Response(serialized.data, status=status.HTTP_200_OK)
-    
+
     def create(self, request):
         gig_slot = GigSlot.objects.create(
             gig_id=request.data['gig_id'],
@@ -55,7 +61,7 @@ class GigSlotView(ViewSet):
         )
         serialized = GigSlotSerializer(gig_slot)
         return Response(serialized.data, status=status.HTTP_201_CREATED)
-    
+
     def update(self, request, pk=None):
         try:
             gig_slot = GigSlot.objects.get(pk=pk)

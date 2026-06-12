@@ -29,14 +29,6 @@ class InviteView(ViewSet):
         invites = Invite.objects.filter(musician=request.user)
         serialized = InviteSerializer(invites, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
-
-    #all invites for a specific slot
-    @action(detail=False, methods=['get'], url_path='by_slot')
-    def by_slot(self, request):
-        gigslot_id = request.query_params.get('gigslot_id')
-        invites = Invite.objects.filter(slot_id=gigslot_id)
-        serialized = InviteSerializer(invites, many=True)
-        return Response(serialized.data, status=status.HTTP_200_OK)
     
     def retrieve(self, request, pk=None):
         try:
